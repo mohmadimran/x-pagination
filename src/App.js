@@ -1,4 +1,4 @@
-import "./App.css"
+import "./App.css";
 import { useState, useEffect } from "react";
 
 export default function App() {
@@ -19,7 +19,7 @@ export default function App() {
         // console.log(apiData);
         setData(apiData);
       } catch (err) {
-        console.log(err);
+        alert("failed to fetch data");
         setError(true);
       } finally {
         setLoading(false);
@@ -67,7 +67,7 @@ export default function App() {
     <div className="container">
       <h1>Employee Data Table</h1>
 
-      <div>
+      <div className="table-wraper">
         {loading ? (
           <h1>Loading......</h1>
         ) : (
@@ -85,7 +85,7 @@ export default function App() {
             </tbody>
           </table>
         )}
-        {error && " sorry! can not found the data"}
+        {error && " failed to fetch data"}
       </div>
       <div className="buttonWraper">
         <button type="button" onClick={handlePrevious}>
